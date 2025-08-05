@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { ExtensionWallet } from "typink";
 import { useState, useEffect } from "react";
 import { CheckIcon } from "lucide-react";
+import { RemarkBtn } from "./remark-btn";
 
 export function WalletSelect() {
   const [isMounted, setIsMounted] = useState(false);
@@ -96,17 +97,7 @@ export function WalletSelect() {
           >
             {account.name} {account.address} {account.type}{" "}
             {connectedAccount?.address === account.address ? (
-              <Button
-                onClick={() => {
-                  const tx = client?.tx.system.remark(
-                    "Hello, world from typink!"
-                  );
-                  console.log(tx);
-                  tx?.signAndSend(connectedAccount.address);
-                }}
-              >
-                Remark Tx
-              </Button>
+              <RemarkBtn />
             ) : (
               <Button onClick={() => setConnectedAccount(account)}>
                 Use this account

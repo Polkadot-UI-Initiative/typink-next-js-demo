@@ -1,6 +1,6 @@
 "use client";
 
-import { popTestnet, TypinkProvider } from "typink";
+import { popTestnet, shibuyaTestnet, TypinkProvider } from "typink";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +9,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       deployments={[]}
       defaultCaller={"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"}
       defaultNetworkId={popTestnet.id}
-      supportedNetworks={[popTestnet]}
+      supportedNetworks={[popTestnet, shibuyaTestnet]}
     >
       {children}
     </TypinkProvider>
